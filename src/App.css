@@ -1,38 +1,132 @@
 .App {
-  text-align: center;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  width: 100%;
+  background-color:  #39b54a;
   color: white;
+  display: flex;
+  justify-content: space-between;
+
 }
 
-.App-link {
-  color: #61dafb;
+.right {
+  margin-right: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cards {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  margin: 10px;
+}
+
+.closeBtn {
+  height: 25px;
+  width: 25px;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  background-color:  #39b54a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer li {
+  display: inline-block;
+  text-align: center;
+  width: 45px;
+  line-height: 42px;
+  height: 45px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.footer li:hover {
+  background-color: white;
+  color: green;
+}
+
+a {
+  display: inline-block;
+}
+
+.tree {
+  margin-top: 150px;
+}
+
+.treeCSS, 
+.treeCSS ul,
+.treeCSS li {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  list-style: none;
+}
+.treeCSS ul {
+  margin: 0 0 0 .5em; /* вести линию вниз где-то с полбуквы родителя */
+}
+.treeCSS > li:not(:only-child),
+.treeCSS li li {
+  position: relative;
+  padding: .2em 0 0 1.2em; /* отступ до текста; для раскрывающегося списка в ряде случаев (в Хроме есть баг) padding-top (.2em) лучше указывать в px */
+}
+.treeCSS li:not(:last-child) {
+  border-left: 1px solid #ccc; /* толщина, цвет и стиль (вместо сплошной пунктирная или точечная) вертикальной линии */
+}
+.treeCSS li li:before,
+.treeCSS > li:not(:only-child):before { /* горизонтальная линия */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.1em; /* не более отступа до текста (1.2em) */
+  height: .7em; /* начинается приблизительно с половины высоты буквы (.5em + .2em) */
+  border-bottom: 1px solid #ccc;
+}
+.treeCSS li:last-child:before { /* вертикальная линия последнего пункта в каждом списке */
+  width: calc(1.1em - 1px); /* для перфекционистов */
+  border-left: 1px solid #ccc;
+}
+
+.treeCSS .drop {
+  position: absolute;
+  left: -.5em;
+  top: .4em; /* .2em (font-size: 80%;) + .2em (padding из .treeCSS li li) */
+  width: .9em;
+  height: .9em;
+  line-height: .9em;
+  text-align: center;
+  background: #fff;
+  font-size: 80%;
+  cursor: pointer;
+}
+.treeCSS li:last-child > .drop {
+  margin-left: 1px;
+}
+.treeCSS .drop + ul {
+  display: none;
+}
+.treeCSS .dropM + ul {
+  display: block;
 }
